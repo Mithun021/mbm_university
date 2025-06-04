@@ -12,11 +12,9 @@
 
 <!-- start page title -->
 <div class="row">
-    <div class="col-lg-12">
-        <div class="card card-body">
-            <img src="<?= base_url() ?>public/assets/image/about-mbm.jpg" alt="" id="dashboard-image">
-        </div>
-    </div>
+  
+    <?= view('admin/layouts/dashboard') ?>
+
 </div>
 
 <?= $this->endSection() ?>
