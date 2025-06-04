@@ -21,7 +21,7 @@ if ($sessionData) {
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="<?= base_url() ?>public/assets/image/logo.jpg">
+    <link rel="shortcut icon" href="<?= base_url() ?>public/assets/image/mbm-logo.jpg">
     <!-- Dropify css -->
     <link href="<?= base_url() ?>public/admin/plugins/dropify/dropify.min.css" rel="stylesheet" type="text/css" />
     <!-- App css -->
@@ -120,7 +120,7 @@ if ($sessionData) {
                     <div class="dropdown d-inline-block ml-2">
                         <button type="button" class="btn header-item waves-effect"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="rounded-circle header-profile-user" src="<?= base_url() ?>public/assets/image/logo.jpg"
+                            <img class="rounded-circle header-profile-user" src="<?= base_url() ?>public/assets/image/mbm-logo.jpg"
                                 alt="Header Avatar">
                             <span class="d-none d-sm-inline-block ml-1"><?php if ($sessionData) {
                                                                             echo $LoggedUserName;
@@ -150,7 +150,7 @@ if ($sessionData) {
 
                 <div class="navbar-brand-box">
                     <a href="<?= base_url() ?>admin/" class="logo">
-                        <img src="<?= base_url() ?>public/assets/image/logo.jpg" alt="" height="60">
+                        <img src="<?= base_url() ?>public/assets/image/mbm-logo.jpg" alt="" height="60">
                         <!-- <span>
                                     TANA BHAGAT CLG
                                 </span> -->
@@ -176,7 +176,7 @@ if ($sessionData) {
                     <div class="row">
                         <div class="col-12">
                             <div class="page-title-box d-flex align-items-center justify-content-between">
-                                <h4 class="mb-0 font-size-18">NIPER Raebareli</h4>
+                                <h4 class="mb-0 font-size-18">MBM Jodhpur</h4>
 
                                 <div class="page-title-right">
                                     <ol class="breadcrumb m-0">

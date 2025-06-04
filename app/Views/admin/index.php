@@ -14,7 +14,7 @@
 <div class="row">
     <div class="col-lg-12">
         <div class="card card-body">
-            <img src="<?= base_url() ?>public/admin/assets/images/niperclg.jpg" alt="" id="dashboard-image">
+            <img src="<?= base_url() ?>public/admin/assets/images/about-mbm.jpg" alt="" id="dashboard-image">
         </div>
     </div>
 </div>
