@@ -51,7 +51,7 @@
             </ul>
         </li>
 
-        <li>
+        <!--<li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
                     class="mdi mdi-table-merge-cells"></i><span>Tendor Details</span></a>
             <ul class="sub-menu" aria-expanded="false">
@@ -73,7 +73,7 @@
                 <li><a href="<?= base_url() ?>admin/job-category">Job Category</a></li>
                 <li><a href="<?= base_url() ?>admin/result-category">Result Category</a></li>
             </ul>
-        </li>
+        </li>-->
 
         <li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
@@ -132,11 +132,11 @@
             </ul>
         </li>
 
-        <li>
+        <!--<li>
             <a href="<?= base_url() ?>admin/students" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Student Details</span></a>
-        </li>
+        </li>-->
 
-        <li>
+        <!--<li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
                     class="mdi mdi-table-merge-cells"></i><span>Placement</span></a>
             <ul class="sub-menu" aria-expanded="false">
@@ -151,9 +151,9 @@
                 <li><a href="<?= base_url() ?>admin/placement-page-section-details">Page Section Details</a></li>
                 <li><a href="<?= base_url() ?>admin/placement-page-gallery">Page Gallery</a></li>
             </ul>
-        </li>
+        </li>-->
 
-        <li>
+        <!--<li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
                     class="mdi mdi-table-merge-cells"></i><span>Alumini</span></a>
             <ul class="sub-menu" aria-expanded="false">
@@ -164,17 +164,17 @@
                 <li><a href="<?= base_url() ?>admin/alumini-education-detail" class="waves-effect"><span>Alumni Education Details</span></a></li>
                 <li><a href="<?= base_url() ?>admin/alumini-job-details" class="waves-effect"><span>Alumni Job Details</span></a></li>
             </ul>
-        </li>
+        </li>-->
 
-        <li>
+        <!--<li>
             <a href="<?= base_url() ?>admin/convocation" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Convocation Details</span></a>
-        </li>
+        </li>-->
 
-        <li>
+        <!--<li>
             <a href="<?= base_url() ?>admin/ranking" class="waves-effect"><i class="mdi mdi-table-merge-cells"></i><span>Ranking Details</span></a>
-        </li>
+        </li>-->
 
-        <li>
+        <!--<li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
                     class="mdi mdi-table-merge-cells"></i><span>Result & Grades</span></a>
             <ul class="sub-menu" aria-expanded="false">
@@ -182,9 +182,9 @@
                 <li><a href="<?= base_url() ?>admin/grades" class="waves-effect"><span>Grades Details</span></a></li>
                 <li><a href="<?= base_url() ?>admin/result-grades-notice" class="waves-effect"><span>Footer Notes</span></a></li>
             </ul>
-        </li>
+        </li>-->
 
-        <li>
+        <!--<li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
                     class="mdi mdi-table-merge-cells"></i><span>Admission</span></a>
             <ul class="sub-menu" aria-expanded="false">
@@ -193,7 +193,7 @@
                 <li><a href="<?= base_url() ?>admin/admission-section-image" class="waves-effect"><span>Admission Section Image</span></a></li>
                 <li><a href="<?= base_url() ?>admin/admission-section-file" class="waves-effect"><span>Admission Section File</span></a></li>
             </ul>
-        </li>
+        </li>-->
 
         <li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
@@ -210,14 +210,14 @@
             </ul>
         </li>
 
-        <li>
+        <!--<li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
                     class="mdi mdi-share-variant"></i><span>Instrument Slot Book</span></a>
             <ul class="sub-menu" aria-expanded="true">
                 <li><a href="<?= base_url() ?>admin/create-instrument-slots">Create Instrument Slots</a></li>
                 <li><a href="<?= base_url() ?>admin/instrument-booking-report">Booking Report</a></li>
             </ul>
-        </li>
+        </li>-->
 
         <li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
@@ -232,14 +232,14 @@
                 <li><a href="<?= base_url() ?>admin/courseList" class="waves-effect"><span>Course Details</span></a></li>
                 <li><a href="<?= base_url() ?>admin/assignCourseList" class="waves-effect"><span>Assign Course Details</span></a></li>
                 <li><a href="<?= base_url() ?>admin/program-dept-mapping" class="waves-effect"><span>Program Dept. Mapping</span></a></li>
-                <li><a href="<?= base_url() ?>admin/program-dept-std-mapping" class="waves-effect"><span>Program Dept. Std. Mapping</span></a></li>
+                <!--<li><a href="<?= base_url() ?>admin/program-dept-std-mapping" class="waves-effect"><span>Program Dept. Std. Mapping</span></a></li>-->
                 <li><a href="<?= base_url() ?>admin/membership" class="waves-effect"><span>Membership Details</span></a></li>
                 <li><a href="<?= base_url() ?>admin/download-forms">Download Form</a></li>
                 <li><a href="<?= base_url() ?>admin/annual-report">Annual Report</a></li>
-                <li><a href="<?= base_url() ?>admin/placement-details">Placement Details</a></li>
+                <!--<li><a href="<?= base_url() ?>admin/placement-details">Placement Details</a></li>-->
                 <li><a href="<?= base_url() ?>admin/recuiter-details">Recuiter Details</a></li>
-                <li><a href="<?= base_url() ?>admin/instrument-facility">Instrument & Facilities</a></li>
-                <li><a href="<?= base_url() ?>admin/instrument-rates">Instrument Rates</a></li>
+                <!--<li><a href="<?= base_url() ?>admin/instrument-facility">Instrument & Facilities</a></li>-->
+                <!--<li><a href="<?= base_url() ?>admin/instrument-rates">Instrument Rates</a></li>-->
                 <li><a href="<?= base_url() ?>admin/private-research-labs">Private Research Labs</a></li>
                 <li><a href="<?= base_url() ?>admin/governmental-link">Governmental Link</a></li>
                 <li><a href="<?= base_url() ?>admin/newsletter">Newsletter</a></li>
