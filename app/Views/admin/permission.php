@@ -1,6 +1,7 @@
 <!-- app/Views/recruiterdetails_form.php -->
 <?= $this->extend("admin/layouts/master") ?>
-<?= $this->section("body-content"); ?>
+<?= $this->section("body-content"); 
+use App\Models\Module_roles_model;?>
 
 <?php
     use App\Models\Module_category_model;
@@ -8,6 +9,7 @@
 
     $module_category_model = new Module_category_model();
     $Permission_model = new Permission_model();
+    $module_roles_model = new Module_roles_model();
 ?>
 
 <div class="row">
@@ -27,10 +29,12 @@
                     <table class="table table-striped table-hover table-border">
                         <tbody>
                             <?php foreach ($modules as $key => $value) { 
-                                $module_category = $module_category_model->get_by_module_id($value['id']); ?>
+                                $module_category = $module_category_model->get_by_module_id($value['id']); 
+                                $module_roles = $module_roles_model->get_by_employee_and_module_id($emp_id, $value['id']);    
+                            ?>
                                 <tr style="background-color: #fca996; color : #000; font-weight : bold">
                                     <td><?= ++$key ?></td>
-                                    <td> <span><input type="checkbox" class="module-checkbox" data-module-id="<?= $value['id'] ?>" data-employee-id="<?= $emp_id ?>"></span> <?= $value['name'] ?></td>
+                                    <td> <?= $module_roles['status'] ?><span><input type="checkbox" class="module-checkbox" data-module-id="<?= $value['id'] ?>" data-employee-id="<?= $emp_id ?>" <?= ($module_roles && $module_roles['status'] == 1) ? 'checked' : '' ?>></span> <?= $value['name'] ?></td>
                                     <td>View</td>
                                     <td>Add</td>
                                     <td>Edit</td>

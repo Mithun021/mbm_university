@@ -26,5 +26,13 @@
             }
             return $result;
         }
+
+        public function get_by_employee_and_module_id($employee_id, $module_id){
+            return $this->where([
+                'employee_id' => $employee_id,
+                'module_id' => $module_id
+            ])->first();
+        }
+
     }
 ?>
