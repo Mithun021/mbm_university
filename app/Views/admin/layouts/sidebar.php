@@ -22,7 +22,7 @@
         <li class="menu-title">Menu</li>
 
         <li>
-            <a href="<?= base_url() ?>admin/" class="waves-effect"><i class="mdi mdi-home-analytics"></i><span><?= $loggeduserId ?> Dashboard</span></a>
+            <a href="<?= base_url() ?>admin/" class="waves-effect"><i class="mdi mdi-home-analytics"></i><span>Dashboard</span></a>
         </li>
         <?php if ($showPatent): ?>
         <li>
