@@ -30,7 +30,7 @@
                                 $module_category = $module_category_model->get_by_module_id($value['id']); ?>
                                 <tr style="background-color: #fca996; color : #000; font-weight : bold">
                                     <td><?= ++$key ?></td>
-                                    <td><?= $value['name'] ?></td>
+                                    <td> <span><input type="checkbox" name="" id=""></span> <?= $value['name'] ?></td>
                                     <td>View</td>
                                     <td>Add</td>
                                     <td>Edit</td>
