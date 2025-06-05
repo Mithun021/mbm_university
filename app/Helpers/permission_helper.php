@@ -44,26 +44,26 @@ function has_permission($user_id, $permission_name, $access_type = null)
     }
 
     // If no specific access_type is being requested, basic permission is enough
-    if ($access_type === null) {
+    if ($access_type === null && $access_type == 'view') {
         return true;
     }
 
     // Check specific permission in module_category and permission table
-    $module_category = $module_category_model
-        ->where('sort_parameter', $permission_name)
-        ->where('module_id', $module['id'])
-        ->first();
+    // $module_category = $module_category_model
+    //     ->where('sort_parameter', $permission_name)
+    //     ->where('module_id', $module['id'])
+    //     ->first();
 
-    if (!$module_category || !isset($module_category['id'])) {
-        return false;
-        // echo $module_category['id']; die;
-    }
+    // if (!$module_category || !isset($module_category['id'])) {
+    //     return false;
+    //     // echo $module_category['id']; die;
+    // }
 
-    if ($access_type === "view") {
-    // Build specific permission query
-        $permission_data = $permission_model->where('module_cat_id', $module_category['id'])
-                        ->where('emplyee_id', $user_id)
-                        ->where('view_permission', 1);
-        return $permission_data ? true : false;
-    }
+    // if ($access_type === "view") {
+    // // Build specific permission query
+    //     $permission_data = $permission_model->where('module_cat_id', $module_category['id'])
+    //                     ->where('emplyee_id', $user_id)
+    //                     ->where('view_permission', 1);
+    //     return $permission_data ? true : false;
+    // }
 }
