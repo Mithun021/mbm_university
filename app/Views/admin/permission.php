@@ -73,7 +73,22 @@
         const empId = $(this).data('employee-id');
         const status = $(this).is(':checked') ? 1 : 0;
 
-        alert(`Module ID: ${moduleId}, Employee ID: ${empId}, Status: ${status}`);
+        // alert(`Module ID: ${moduleId}, Employee ID: ${empId}, Status: ${status}`);
+        $.ajax({
+            url: "<?= base_url('admin/module-roles') ?>",
+            type: "POST",
+            data: {
+                module_id: moduleId,
+                employee_id: empId,
+                status: status
+            },
+            success: function (response) {
+                alert(response);
+            },
+            error: function (xhr) {
+                console.error("Error:", xhr.responseText);
+            }
+        });
 
     });
 </script>

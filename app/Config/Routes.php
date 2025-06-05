@@ -311,6 +311,7 @@ $routes->group('admin',['filter'=>'adminLogin'], static function($routes){
     $routes->match(['get', 'post'], 'modules', 'AdminControllers::modules');
     $routes->match(['get', 'post'], 'roles-permissions', 'AdminControllers::roles_permissions');
     $routes->match(['get', 'post'], 'permission/(:num)', 'AdminControllers::permission/$1');
+    $routes->post('module-roles', 'AdminControllers::module_roles');
     $routes->match(['get', 'post'], 'menu', 'AdminControllers::menu');
     $routes->post('menu-heading', 'AdminControllers::menu_heading');
     $routes->post('save_menu_heading_sort_order', 'AdminControllers::save_menu_heading_sort_order');

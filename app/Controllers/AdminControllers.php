@@ -30,6 +30,7 @@ use App\Models\Membership_model;
 use App\Models\Menu_heading_model;
 use App\Models\Menu_name_model;
 use App\Models\Menu_pages_model;
+use App\Models\Module_roles_model;
 use App\Models\Newsletter_model;
 use App\Models\Permission_model;
 use App\Models\Photo_album_file_model;
@@ -1095,6 +1096,27 @@ use App\Models\Youtube_link_model;
                 }else{
                     echo "Failed to update";
                 }
+            }
+        }
+
+        public function module_roles(){
+            $module_roles_model = new Module_roles_model();
+            $moduleId = $this->request->getPost('module_id');
+            $employeeId = $this->request->getPost('employee_id');
+            $status = $this->request->getPost('status');
+            $existing = $module_roles_model->where('module_id', $moduleId)
+                      ->where('employee_id', $employeeId)
+                      ->first();
+            if ($existing) {
+                $module_roles_model->update($existing['id'], ['status' => $status]);
+                echo "Module role updated successfully.";
+            }else{
+                $module_roles_model->insert([
+                    'module_id' => $moduleId,
+                    'employee_id' => $employeeId,
+                    'status' => $status
+                ]);
+                echo 'Module role added successfully.';
             }
         }
 
