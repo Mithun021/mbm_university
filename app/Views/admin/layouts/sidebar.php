@@ -12,7 +12,7 @@
         return has_permission($userData['loggeduserId'], $permission);
     }
 
-    $showPatent = menu_access('news_events');
+    $showPatent = menu_access('news_events_detail');
 ?>
 
 
