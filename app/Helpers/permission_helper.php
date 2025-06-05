@@ -5,42 +5,76 @@ use App\Models\Module_category_model;
 use App\Models\Module_roles_model;
 use App\Models\Permission_model;
 use App\Models\Roles_model;
-use CodeIgniter\Modules\Modules;
+
 function has_permission($user_id, $permission_name, $access_type = null)
 {
-    // Load necessary models
-    $employee_model = new Employee_model();
-    $roles_model = new Roles_model();
-    $module_roles_model = new Module_roles_model();
+    // Load models
+    $employee_model         = new Employee_model();
+    $roles_model            = new Roles_model();
+    $module_roles_model     = new Module_roles_model();
+    $module_category_model  = new Module_category_model();
+    $permission_model       = new Permission_model();
 
-    // Get user info
+    // Get user data
     $user = $employee_model->find($user_id);
 
-    // Admin has full access
+    // Grant all access if user is admin
     if ($user && isset($user['authority']) && $user['authority'] === 'admin') {
         return true;
     }
 
-    // Find module permission by type
-    $module_permission = $roles_model->where('type', $permission_name)->first();
+    // Get the module by permission name (type)
+    $module = $roles_model->where('type', $permission_name)->first();
 
-    // If the permission type doesn't exist, deny access
-    if (!$module_permission || !isset($module_permission['id'])) {
+    if (!$module || !isset($module['id'])) {
         return false;
     }
 
-    // Check if user has active permission for this module
+    // Check if user has access to this module
     $module_permission = $module_roles_model->where('employee_id', $user_id)
-        ->where('module_id', $module_permission['id'])
+        ->where('module_id', $module['id'])
         ->where('status', 1)
         ->first();
 
-    return $module_permission ? true : false;
+    if (!$module_permission) {
+        return false;
+    }
+
+    // Optional: Check access via module category and sort_parameter
+    if ($access_type !== null) {
+        $module_category = $module_category_model
+            ->where('sort_parameter', $permission_name)
+            ->where('module_id', $module['id'])
+            ->first();
+
+        if (!$module_category || !isset($module_category['id'])) {
+            return false;
+        }
+
+        // Check if the user has the specific permission for this module category
+        $permission_model->where('module_cat_id', $module_category['id'])
+                 ->where('emplyee_id', $user_id);
+
+        if ($access_type === 'view') {
+            $permission_model->where('view_permission', 1);
+        } 
+        if ($access_type === 'add') {
+            $permission_model->where('add_permission', 1);
+        } 
+        if ($access_type === 'edit') {
+            $permission_model->where('edit_permission', 1);
+        } 
+        if ($access_type === 'delete') {
+            $permission_model->where('delete_permission', 1);
+        }
+
+        $permission_data = $permission_model->first();
+        if (!$permission_data) {
+            return false;
+        }
 
 
+    }
 
-
+    return true;
 }
-
-
-?>

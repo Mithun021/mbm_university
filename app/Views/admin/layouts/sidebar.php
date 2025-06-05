@@ -13,7 +13,7 @@
     }
 
     $showPatent = menu_access('news_events') ||
-                  menu_access('news_post', 'can_view');
+                  menu_access('news_post', 'view');
 ?>
 
 
@@ -30,7 +30,9 @@
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
                     class="mdi mdi-table-merge-cells"></i><span>News & Events</span></a>
             <ul class="sub-menu" aria-expanded="false">
+                <?php if (menu_access('news_post','view')): ?>
                 <li><a href="<?= base_url() ?>admin/news-post" class="waves-effect"><span>News Post</span></a></li>
+                <?php endif; ?>
                 <li><a href="<?= base_url() ?>admin/event-post" class="waves-effect"><span>Events Post</span></a></li>
                 <li><a href="<?= base_url() ?>admin/event-link" class="waves-effect"><span>Events Link</span></a></li>
                 <li><a href="<?= base_url() ?>admin/event-video" class="waves-effect"><span>Events Video</span></a></li>
