@@ -12,7 +12,7 @@
         return has_permission($userData['loggeduserId'], $permission, $access_type);
     }
 
-    $showPatent = menu_access('news_events') ||
+    $showNewsEventsMenu = menu_access('news_events') ||
                   menu_access('news_post', 'view');
 ?>
 
@@ -25,7 +25,7 @@
         <li>
             <a href="<?= base_url() ?>admin/" class="waves-effect"><i class="mdi mdi-home-analytics"></i><span>Dashboard</span></a>
         </li>
-        <?php if ($showPatent): ?>
+        <?php if ($showNewsEventsMenu): ?>
         <li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
                     class="mdi mdi-table-merge-cells"></i><span>News & Events</span></a>
