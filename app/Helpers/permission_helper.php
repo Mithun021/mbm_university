@@ -55,8 +55,8 @@ function has_permission($user_id, $permission_name, $access_type = null)
         ->first();
 
     if (!$module_category || !isset($module_category['id'])) {
-        // return false;
-        echo $module_category['id']; die;
+        return false;
+        // echo $module_category['id']; die;
     }
 
     if ($access_type === "view") {
