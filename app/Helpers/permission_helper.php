@@ -23,12 +23,13 @@ function has_permission($user_id, $permission_name)
 
 
     $module_premission = $modules_model->where('type', $permission_name)->first();
-    return $module_premission ? true : false;
+    // return $module_premission ? true : false;
 
 
-
-
-
+    return $module_roles_model->where('employee_id', $user_id)
+        ->where('module_id', $module_premission['id'])
+        ->where('status', 1)
+        ->first() ? true : false;
 
 }
 
