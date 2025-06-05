@@ -58,27 +58,11 @@ function has_permission($user_id, $permission_name, $access_type = null)
         return false;
     }
 
+    if ($access_type === "view") {
     // Build specific permission query
-    $permission_model->where('module_cat_id', $module_category['id'])
-                     ->where('emplyee_id', $user_id);
-
-    switch ($access_type) {
-        case 'view':
-            $permission_model->where('view_permission', 1);
-            break;
-        case 'add':
-            $permission_model->where('add_permission', 1);
-            break;
-        case 'edit':
-            $permission_model->where('edit_permission', 1);
-            break;
-        case 'delete':
-            $permission_model->where('delete_permission', 1);
-            break;
-        default:
-            return false;
+        $permission_data = $permission_model->where('module_cat_id', $module_category['id'])
+                        ->where('emplyee_id', $user_id)
+                        ->where('view_permission', 1);
+        return $permission_data ? true : false;
     }
-
-    $permission_data = $permission_model->first();
-    return $permission_data ? true : false;
 }
