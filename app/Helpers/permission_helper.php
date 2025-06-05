@@ -14,25 +14,20 @@ function has_permission($user_id, $permission_name, $access_type = null)
     $module_category_model  = new Module_category_model();
     $permission_model       = new Permission_model();
 
-    // Get employee record
     $user = $employee_model->find($user_id);
-
     if (!$user) {
-        return false; // No such user
+        return false;
     }
 
-    // Allow all access to admin
     if ($user['authority'] === 'admin') {
         return true;
     }
 
-    // Get module (permission) by type
     $module = $roles_model->where('type', $permission_name)->first();
     if (!$module || !isset($module['id'])) {
         return false;
     }
 
-    // Check basic module permission (module_roles)
     $module_permission = $module_roles_model
         ->where('employee_id', $user_id)
         ->where('module_id', $module['id'])
@@ -40,30 +35,15 @@ function has_permission($user_id, $permission_name, $access_type = null)
         ->first();
 
     if (!$module_permission) {
-        return false; // No access to module
+        return false;
     }
 
-    // If no specific access_type is being requested, basic permission is enough
-    if ($access_type === null && $access_type == 'view') {
+    // ✅ Allow if access_type is null or 'view'
+    if ($access_type === null || $access_type === 'view') {
         return true;
     }
 
-    // Check specific permission in module_category and permission table
-    // $module_category = $module_category_model
-    //     ->where('sort_parameter', $permission_name)
-    //     ->where('module_id', $module['id'])
-    //     ->first();
+    // Additional access type logic (e.g., 'edit', 'delete') can be added here
 
-    // if (!$module_category || !isset($module_category['id'])) {
-    //     return false;
-    //     // echo $module_category['id']; die;
-    // }
-
-    // if ($access_type === "view") {
-    // // Build specific permission query
-    //     $permission_data = $permission_model->where('module_cat_id', $module_category['id'])
-    //                     ->where('emplyee_id', $user_id)
-    //                     ->where('view_permission', 1);
-    //     return $permission_data ? true : false;
-    // }
+    return false;
 }
