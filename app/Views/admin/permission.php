@@ -34,7 +34,7 @@ use App\Models\Module_roles_model;?>
                             ?>
                                 <tr style="background-color: #fca996; color : #000; font-weight : bold">
                                     <td><?= ++$key ?></td>
-                                    <td> <?= $module_roles['status'] ?><span><input type="checkbox" class="module-checkbox" data-module-id="<?= $value['id'] ?>" data-employee-id="<?= $emp_id ?>" <?= ($module_roles && $module_roles['status'] == 1) ? 'checked' : '' ?>></span> <?= $value['name'] ?></td>
+                                    <td><span><input type="checkbox" class="module-checkbox" data-module-id="<?= $value['id'] ?>" data-employee-id="<?= $emp_id ?>" <?= ($module_roles && $module_roles['status'] == 1) ? 'checked' : '' ?>></span> <?= $value['name'] ?></td>
                                     <td>View</td>
                                     <td>Add</td>
                                     <td>Edit</td>
