@@ -30,7 +30,7 @@
                                 $module_category = $module_category_model->get_by_module_id($value['id']); ?>
                                 <tr style="background-color: #fca996; color : #000; font-weight : bold">
                                     <td><?= ++$key ?></td>
-                                    <td> <span><input type="checkbox" name="" id=""></span> <?= $value['name'] ?></td>
+                                    <td> <span><input type="checkbox" class="module-checkbox" data-module-id="<?= $value['id'] ?>" data-employee-id="<?= $emp_id ?>"></span> <?= $value['name'] ?></td>
                                     <td>View</td>
                                     <td>Add</td>
                                     <td>Edit</td>
@@ -64,5 +64,18 @@
         </div>
     </div>
 </div>
+
+<script src="<?= base_url() ?>public/admin/assets/js/jquery.min.js"></script>
+
+<script>
+    $('.module-checkbox').on('change', function () {
+        const moduleId = $(this).data('module-id');
+        const empId = $(this).data('employee-id');
+        const status = $(this).is(':checked') ? 1 : 0;
+
+        alert(`Module ID: ${moduleId}, Employee ID: ${empId}, Status: ${status}`);
+
+    });
+</script>
 
 <?= $this->endSection() ?>
