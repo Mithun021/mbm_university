@@ -6,7 +6,7 @@ use App\Models\Module_roles_model;
 use App\Models\Permission_model;
 use App\Models\Roles_model;
 use CodeIgniter\Modules\Modules;
-function has_permission($user_id, $permission_name)
+function has_permission($user_id, $permission_name, $access_type = null)
 {
     // Load necessary models
     $employee_model = new Employee_model();
@@ -30,12 +30,16 @@ function has_permission($user_id, $permission_name)
     }
 
     // Check if user has active permission for this module
-    $has_permission = $module_roles_model->where('employee_id', $user_id)
+    $module_permission = $module_roles_model->where('employee_id', $user_id)
         ->where('module_id', $module_permission['id'])
         ->where('status', 1)
         ->first();
 
-    return $has_permission ? true : false;
+    return $module_permission ? true : false;
+
+
+
+
 }
 
 

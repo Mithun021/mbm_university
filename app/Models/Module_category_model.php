@@ -5,7 +5,7 @@
     {
         protected $table         = 'module_category';
         protected $primaryKey = 'id';
-        protected $allowedFields = ['name','module_id','c_view','c_add','c_edit','c_delete'];
+        protected $allowedFields = ['name','sort_parameter','module_id','c_view','c_add','c_edit','c_delete'];
 
         public function get_by_module_id($id){
             return $this->where('module_id',$id)->findAll();

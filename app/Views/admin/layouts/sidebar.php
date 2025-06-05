@@ -3,16 +3,17 @@
     $loggedUserData = $session->get('loggedUserData');
     $loggeduserId = $loggedUserData['loggeduserId'] ?? null;
 
-    function menu_access($permission) {
+    function menu_access($permission,$access_type = null) {
         $session = session();
         $userData = $session->get('loggedUserData');
         if (!$userData || !isset($userData['loggeduserId'])) {
             return false; // Not logged in or invalid session
         }
-        return has_permission($userData['loggeduserId'], $permission);
+        return has_permission($userData['loggeduserId'], $permission, $access_type);
     }
 
-    $showPatent = menu_access('news_events');
+    $showPatent = menu_access('news_events') ||
+                  menu_access('news_post', 'can_view');
 ?>
 
 
