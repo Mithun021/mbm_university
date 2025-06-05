@@ -1,10 +1,19 @@
+<?php
+    $sessionData = session()->get('loggedUserData');
+    if ($sessionData) {
+        $loggeduserId = $sessionData['loggeduserId'];
+    }else {
+        $loggeduserId = "Not id passed";
+    }
+?>
+
 <div id="sidebar-menu">
     <!-- Left Menu Start -->
     <ul class="metismenu list-unstyled" id="side-menu">
         <li class="menu-title">Menu</li>
 
         <li>
-            <a href="<?= base_url() ?>admin/" class="waves-effect"><i class="mdi mdi-home-analytics"></i><span>Dashboard</span></a>
+            <a href="<?= base_url() ?>admin/" class="waves-effect"><i class="mdi mdi-home-analytics"></i><span><?= $loggeduserId ?> Dashboard</span></a>
         </li>
         <li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i

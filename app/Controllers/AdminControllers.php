@@ -66,6 +66,7 @@ use App\Models\Youtube_link_model;
                         'loggeduserFirstName' => $data['first_name'],
                         'loggeduserPhone' => $data['mobile_no'],
                         'loggeduseremail' => $data['official_mail'],
+                        'loggeduserAuthority' => $data['authority'],
                         'loggeduserId' => $data['id']
                     ];
                     $userPhone = $data['mobile_no'];
