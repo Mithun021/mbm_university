@@ -1,11 +1,20 @@
 <?php
-    $sessionData = session()->get('loggedUserData');
-    if ($sessionData) {
-        $loggeduserId = $sessionData['loggeduserId'];
-    }else {
-        $loggeduserId = "Not id passed";
+    $session = session();
+    $loggedUserData = $session->get('loggedUserData');
+    $loggeduserId = $loggedUserData['loggeduserId'] ?? null;
+
+    function menu_access($permission) {
+        $session = session();
+        $userData = $session->get('loggedUserData');
+        if (!$userData || !isset($userData['loggeduserId'])) {
+            return false; // Not logged in or invalid session
+        }
+        return has_permission($userData['loggeduserId'], $permission);
     }
+
+    $showPatent = menu_access('news_events');
 ?>
+
 
 <div id="sidebar-menu">
     <!-- Left Menu Start -->
@@ -15,6 +24,7 @@
         <li>
             <a href="<?= base_url() ?>admin/" class="waves-effect"><i class="mdi mdi-home-analytics"></i><span><?= $loggeduserId ?> Dashboard</span></a>
         </li>
+        <?php if ($showPatent): ?>
         <li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
                     class="mdi mdi-table-merge-cells"></i><span>News & Events</span></a>
@@ -35,6 +45,7 @@
                 <li><a href="<?= base_url() ?>admin/event-contact-info" class="waves-effect"><span>Events Contact Info</span></a></li>
             </ul>
         </li>
+        <?php endif; ?>
 
         <li>
             <a href="javascript: void(0);" class="has-arrow waves-effect"><i
