@@ -84,6 +84,11 @@ use App\Models\Youtube_link_model;
             }
            
         }
+
+        public function permission_denied(){
+            return view('admin/permission_denied');
+        }
+
         public function adminDashboard(){
             $data = [
                 'title' => 'Home'

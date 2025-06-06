@@ -26,6 +26,8 @@ $routes->group('admin',['filter'=>'adminLogin'], static function($routes){
     $routes->get('/', 'AdminControllers::adminDashboard');
     $routes->get('logout', 'AdminControllers::logout');
 
+    $routes->get('permission_denied', 'AdminControllers::permission_denied');
+
     $routes->match(['get','post'],'news-post', 'NewsController::news_post');
     $routes->match(['get','post'],'edit-news-post/(:num)', 'NewsController::edit_news_post/$1');
     $routes->get('delete-news-post/(:num)', 'NewsController::delete_news_post/$1');

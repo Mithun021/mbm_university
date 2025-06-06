@@ -1,0 +1,1 @@
+<h1>🔐 Oops! It looks like you don’t have permission to access this feature.</h1>

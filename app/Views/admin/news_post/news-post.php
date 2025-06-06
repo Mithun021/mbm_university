@@ -1,7 +1,12 @@
+<?php
+    if (!page_access('news_post', 'view')) {
+        return redirect()->to(base_url('permission_denied'));
+    }
+?>
+
 <?= $this->extend("admin/layouts/master") ?>
 <?=  $this->section("body-content"); ?>
 <?php
-
 use App\Models\Department_model;
 use App\Models\Employee_model;
     $employee_model = new Employee_model();
