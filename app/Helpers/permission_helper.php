@@ -69,7 +69,7 @@ function has_permission($user_id, $permission_name, $access_type = null)
 }
 
 
-function menu_access($permission, $access_type = null)
+function page_access($permission, $access_type = null)
 {
     $session = session();
     $userData = $session->get('loggedUserData');
