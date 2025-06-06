@@ -12,8 +12,7 @@
         return has_permission($userData['loggeduserId'], $permission, $access_type);
     }
 
-    $showNewsEventsMenu = menu_access('news_events') ||
-                  menu_access('news_post', 'view');
+    $showNewsEventsMenu = menu_access('news_events');
 ?>
 
 
