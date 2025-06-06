@@ -3,9 +3,11 @@
 <?= $this->extend("admin/layouts/master") ?>
 <?=  $this->section("body-content"); ?>
 <?php
-    if (!page_access('news_post', 'view')) {
-        return redirect()->to(base_url('admin/permission_denied'));
-    }
+if (!page_access('news_post', 'view')) {
+    // PHP redirect
+    header("Location: " . base_url('admin/permission_denied'));
+    exit();  // stop further execution
+}
 ?>
 <?php
 use App\Models\Department_model;
