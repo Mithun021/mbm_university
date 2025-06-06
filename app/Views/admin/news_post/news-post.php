@@ -80,8 +80,9 @@ use App\Models\Employee_model;
                             </div>
                         </div>
                     </div>
-
+                    <?php if (page_access('news_post', 'add')): ?>
                     <button type="submit" class="btn btn-sm btn-primary" id="submitBtn">Save</button>
+                    <?php endif; ?>
                     
                 </form>
             </div>
