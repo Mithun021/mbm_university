@@ -66,7 +66,7 @@
   <div class="icon">🔐</div>
   <h1>Oops! It looks like you don’t have permission to access this feature.</h1>
   <p>Please contact the administrator if you believe this is an error.</p>
-  <a href="javascript:history.back()" class="button">Go Back</a>
+  <a href="<?= base_url('admin/') ?>" class="button">Go Back</a>
 </div>
 
 </body>

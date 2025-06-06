@@ -152,7 +152,9 @@ use App\Models\Employee_model;
                                     <?php if (page_access('news_post', 'edit')): ?>
                                     <a href="<?= base_url() ?>admin/edit-news-post/<?= $value['id'] ?>" class="btn btn-primary waves-effect waves-light"><i class="fas fa-pen"></i></a>
                                     <?php endif; ?>
+                                    <?php if (page_access('news_post', 'delete')): ?>
                                     <a href="<?= base_url() ?>admin/delete-news-post/<?= $value['id'] ?>" class="btn btn-danger waves-effect waves-light" onclick="return confirm('are you sure...!')"><i class="far fa-trash-alt"></i></a>
+                                    <?php endif; ?>
                                 </div>
                             </td>
                         </tr>
