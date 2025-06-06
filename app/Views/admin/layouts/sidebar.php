@@ -32,7 +32,7 @@
                 <?php if (menu_access('news_post','view')): ?>
                 <li><a href="<?= base_url() ?>admin/news-post" class="waves-effect"><span>News Post</span></a></li>
                 <?php endif; ?>
-                <?php if (menu_access('news_post','view')): ?>
+                <?php if (menu_access('event_post','view')): ?>
                 <li><a href="<?= base_url() ?>admin/event-post" class="waves-effect"><span>Events Post</span></a></li>
                 <?php endif; ?>
                 <li><a href="<?= base_url() ?>admin/event-link" class="waves-effect"><span>Events Link</span></a></li>
