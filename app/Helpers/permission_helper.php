@@ -67,3 +67,16 @@ function has_permission($user_id, $permission_name, $access_type = null)
     $permission_data = $permission_model->first();
     return $permission_data ? true : false;
 }
+
+
+function menu_access($permission, $access_type = null)
+{
+    $session = session();
+    $userData = $session->get('loggedUserData');
+
+    if (!$userData || !isset($userData['loggeduserId'])) {
+        return false;
+    }
+
+    return has_permission($userData['loggeduserId'], $permission, $access_type);
+}
