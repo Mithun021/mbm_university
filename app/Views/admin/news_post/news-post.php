@@ -4,7 +4,7 @@
 <?=  $this->section("body-content"); ?>
 <?php
     if (!page_access('news_post', 'view')) {
-        return redirect()->to(base_url('permission_denied'));
+        return redirect()->to(base_url('admin/permission_denied'));
     }
 ?>
 <?php
