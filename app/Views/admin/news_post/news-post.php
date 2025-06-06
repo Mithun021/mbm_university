@@ -23,6 +23,7 @@ use App\Models\Employee_model;
                         echo session()->getFlashdata('status');
                     }
                 ?>
+                <?php if (page_access('news_post', 'add')): ?>
                 <form method="post" action="<?= base_url() ?>admin/news-post" enctype="multipart/form-data">
                     <div class="row">
                         <div class="col-md-6">
@@ -81,14 +82,15 @@ use App\Models\Employee_model;
                         </div>
                     </div>
                     <?php if (page_access('news_post', 'add')): ?>
-                    <button type="submit" class="btn btn-sm btn-primary" id="submitBtn">Save</button>
-                    <?php else: ?>
-                        <div class="alert alert-danger mt-2" role="alert">
-                            <i class="fas fa-exclamation-circle"></i> You don’t have the required permission to proceed.
-                        </div>
+                        <button type="submit" class="btn btn-sm btn-primary" id="submitBtn">Save</button>
                     <?php endif; ?>
                     
                 </form>
+                <?php else: ?>
+                    <div class="alert alert-danger mt-2" role="alert">
+                        <i class="fas fa-exclamation-circle"></i> You don’t have the required permission to proceed.
+                    </div>
+                <?php endif; ?>
             </div>
         </div>
     </div>
